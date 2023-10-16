@@ -43,7 +43,7 @@ export class Form extends Component {
             <h2>Number</h2>
             <input
               id={this.id}
-              type="tel"
+              type="number"
               name="number"
               onChange={this.handleChange}
               value={this.state.number}
