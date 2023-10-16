@@ -1,4 +1,6 @@
 import { Filter } from 'components/Filter/Filter';
+import { ContactsWraper } from './ContactList.styles';
+
 export const ContactList = ({
   contacts,
   filter,
@@ -6,7 +8,7 @@ export const ContactList = ({
   deleteCon,
 }) => {
   return (
-    <div>
+    <ContactsWraper>
       <h2>Contacts</h2>
       <Filter filters={filter} onChengeFilter={onChengeFilter} />
       <ul>
@@ -19,6 +21,6 @@ export const ContactList = ({
           </li>
         ))}
       </ul>
-    </div>
+    </ContactsWraper>
   );
 };

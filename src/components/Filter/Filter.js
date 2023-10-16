@@ -1,6 +1,8 @@
+import { FilterWraper } from './Filter.styles';
+
 export const Filter = ({ filters, onChengeFilter }) => {
   return (
-    <div>
+    <FilterWraper>
       <p>Find contacts by name</p>
       <input
         type="text"
@@ -11,6 +13,6 @@ export const Filter = ({ filters, onChengeFilter }) => {
         name="filter"
         required
       />
-    </div>
+    </FilterWraper>
   );
 };

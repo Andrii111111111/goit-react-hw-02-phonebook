@@ -1,5 +1,6 @@
 import { nanoid } from 'nanoid';
 import { Component } from 'react';
+import { FormWraper, Title, Input } from './Form.styles';
 
 export class Form extends Component {
   state = {
@@ -28,8 +29,8 @@ export class Form extends Component {
   render() {
     return (
       <>
-        <h1>Phonebook</h1>
-        <div>
+        <Title>Phonebook</Title>
+        <FormWraper>
           <form onSubmit={this.handleSubmit}>
             <h2>Name</h2>
             <input
@@ -41,17 +42,19 @@ export class Form extends Component {
               required
             />
             <h2>Number</h2>
-            <input
-              id={this.id}
-              type="number"
-              name="number"
-              onChange={this.handleChange}
-              value={this.state.number}
-              required
-            />
-            <button type="submit">Add contact</button>
+            <Input>
+              <input
+                id={this.id}
+                type="tel"
+                name="number"
+                onChange={this.handleChange}
+                value={this.state.number}
+                required
+              />
+              <button type="submit">Add contact</button>
+            </Input>
           </form>
-        </div>
+        </FormWraper>
       </>
     );
   }
