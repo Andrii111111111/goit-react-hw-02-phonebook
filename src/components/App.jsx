@@ -3,6 +3,7 @@ import { nanoid } from 'nanoid';
 import { Form } from "./Form/Form";
 import { Component } from "react";
 import { ContactList } from './ContactList/ContactList';
+import { Filter } from './Filter/Filter';
 
 
 export class App extends Component {
@@ -31,25 +32,37 @@ export class App extends Component {
     }
        this.setState(prevState => ({ contacts: [...prevState.contacts, { ...data, id: nanoid() }] })) 
     }
-  
+ // eslint-disable-next-line array-callback-return
+//  contactFilter =  this.state.contacts.filter(contact => {
+//          if (contact.name.toLowerCase().includes(this.state.filter.toLowerCase())) {
+//            return contact
+//          }
+//      })
+   
+    // eslint-disable-next-line array-callback-return
+  // contactFilter = e => {
+  //   if (this.state.contacts.filter(contact  =>
+  //     contact.name.toLowerCase().includes(this.state.filter.toLowerCase()) ))
+  //      {
+  //         return  this.contact
+  //       }
+  //   }
   
   render() {
-   
-    const { contacts, filter } = this.state
-    // eslint-disable-next-line array-callback-return
-    const contactFilter = contacts.filter(contact => {
-        if (contact.name.toLowerCase().includes(filter.toLowerCase())) {
-          return contact
-        }
-    })
+     const { filter } = this.state
   
+ // eslint-disable-next-line array-callback-return
+ const contactFilter =  this.state.contacts.filter(contact => {
+         if (contact.name.toLowerCase().includes(this.state.filter.toLowerCase())) {
+           return contact
+         }
+     })
   return (
    
     <>
-      <Form onSubmit={this.formSubmitEnd}/>
+      <Form onSubmit={this.formSubmitEnd} />
+      <Filter filter={filter} onChengeFilter={this.chengeFilter}/>
       <ContactList contacts={contactFilter}
-        filter={filter}
-        onChengeFilter={this.chengeFilter}
         deleteCon = {this.deleteContacs}
       />
     </>)
