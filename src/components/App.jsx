@@ -32,13 +32,8 @@ export class App extends Component {
     }
        this.setState(prevState => ({ contacts: [...prevState.contacts, { ...data, id: nanoid() }] })) 
     }
- // eslint-disable-next-line array-callback-return
-//  contactFilter =  this.state.contacts.filter(contact => {
-//          if (contact.name.toLowerCase().includes(this.state.filter.toLowerCase())) {
-//            return contact
-//          }
-//      })
-   
+//  eslint-disable-next-line array-callback-return
+
     // eslint-disable-next-line array-callback-return
   // contactFilter = e => {
   //   if (this.state.contacts.filter(contact  =>
